@@ -31,6 +31,7 @@ class CustomerController extends Controller
     {
         return Excel::download(new CustomerExportView(), 'customer.xlsx');
     }
+
     public function export_store()
     {
         // file store in storage/app
@@ -41,4 +42,13 @@ class CustomerController extends Controller
          Excel::store(new CustomerExport(), 'customer-'.now()->toDateString().'.xlsx', 'public');
          return 'Ok';
     }
+
+    public function export_format($format)
+    {
+        $extension = strtolower($format);
+        // please if composer add any pdf package then it will work
+        if(in_array($format, ['Mpdf','Dompdf', 'Tcpdf'])) $extension = 'pdf';
+        return Excel::download(new CustomerExportView(), 'customer.'.$extension, $format);
+    }
+
 }

@@ -16,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
 Route::get('/export', [\App\Http\Controllers\CustomerController::class, 'export'])->name('customers.export');
 Route::get('/export-view', [\App\Http\Controllers\CustomerController::class, 'export_view'])->name('customers.export_view');
+
 Route::get('/export-store', [\App\Http\Controllers\CustomerController::class, 'export_store'])->name('customers.export_store');
+
+Route::get('/export-format/{format}', [\App\Http\Controllers\CustomerController::class, 'export_format'])->name('customers.export_format');

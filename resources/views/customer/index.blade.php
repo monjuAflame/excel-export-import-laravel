@@ -21,6 +21,13 @@
                         <a href="{{ route('customers.export_view') }}" class="btn btn-primary btn-sm"> Separate Class Export All Customer </a>
 
                         <a href="{{ route('customers.export_store') }}" class="btn btn-primary btn-sm"> Store As Files </a>
+
+
+                        <a href="{{ route('customers.export_format', 'Csv') }}" class="btn btn-secondary btn-sm"> Download CSV </a>
+                        <a href="{{ route('customers.export_format', 'Html') }}" class="btn btn-secondary btn-sm"> Download HTML </a>
+                        <a href="{{ route('customers.export_format', 'Dompdf') }}" class="btn btn-secondary btn-sm"> Download PDF </a>
+
+
                     </div>
                     <div class="card-body">
                         @include('customer.table', $customers)
