@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\CustomerExport;
 use App\Exports\CustomerExportView;
+use App\Exports\CustomerMultipleExportSheets;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
@@ -49,6 +50,11 @@ class CustomerController extends Controller
         // please if composer add any pdf package then it will work
         if(in_array($format, ['Mpdf','Dompdf', 'Tcpdf'])) $extension = 'pdf';
         return Excel::download(new CustomerExportView(), 'customer.'.$extension, $format);
+    }
+
+    public function export_multiple_sheets()
+    {
+        return Excel::download(new CustomerMultipleExportSheets, 'customer.xlsx' );
     }
 
 }

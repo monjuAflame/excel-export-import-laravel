@@ -26,6 +26,8 @@
                         <a href="{{ route('customers.export_format', 'Csv') }}" class="btn btn-secondary btn-sm"> Download CSV </a>
                         <a href="{{ route('customers.export_format', 'Html') }}" class="btn btn-secondary btn-sm"> Download HTML </a>
                         <a href="{{ route('customers.export_format', 'Dompdf') }}" class="btn btn-secondary btn-sm"> Download PDF </a>
+                        <!-- multipple sheet by org. -->
+                        <a href="{{ route('customers.export_multiple_sheets') }}" class="btn btn-primary btn-sm"> Exports into Multiple Sheets </a>
 
 
                     </div>

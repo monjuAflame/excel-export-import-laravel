@@ -20,3 +20,4 @@ Route::get('/export-view', [\App\Http\Controllers\CustomerController::class, 'ex
 Route::get('/export-store', [\App\Http\Controllers\CustomerController::class, 'export_store'])->name('customers.export_store');
 
 Route::get('/export-format/{format}', [\App\Http\Controllers\CustomerController::class, 'export_format'])->name('customers.export_format');
+Route::get('/export-format', [\App\Http\Controllers\CustomerController::class, 'export_multiple_sheets'])->name('customers.export_multiple_sheets');
