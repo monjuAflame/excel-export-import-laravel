@@ -28,6 +28,8 @@
                         <a href="{{ route('customers.export_format', 'Dompdf') }}" class="btn btn-secondary btn-sm"> Download PDF </a>
                         <!-- multipple sheet by org. -->
                         <a href="{{ route('customers.export_multiple_sheets') }}" class="btn btn-primary btn-sm"> Exports into Multiple Sheets </a>
+                        <!-- multipple sheet by org. -->
+                        <a href="{{ route('customers.export_by_heading') }}" class="btn btn-primary btn-sm"> Exports with heading </a>
 
 
                     </div>
