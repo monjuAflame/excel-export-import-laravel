@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\CustomerExport;
 use App\Exports\CustomerExportHeading;
+use App\Exports\CustomerExportSize;
 use App\Exports\CustomerExportStyling;
 use App\Exports\CustomerExportView;
 use App\Exports\CustomerMultipleExportSheets;
@@ -77,4 +78,8 @@ class CustomerController extends Controller
         return Excel::download(new CustomerExportStyling(), 'customer.xlsx');
     }
 
+    public function export_autosize()
+    {
+        return Excel::download(new CustomerExportSize(), 'customer.xlsx');
+    }
 }

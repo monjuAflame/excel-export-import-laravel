@@ -24,3 +24,4 @@ Route::get('/export-format', [\App\Http\Controllers\CustomerController::class, '
 Route::get('/export-by-heading', [\App\Http\Controllers\CustomerController::class, 'export_with_heading'])->name('customers.export_by_heading');
 Route::get('/export-relation-map', [\App\Http\Controllers\CustomerController::class, 'export_mapping'])->name('customers.export_mapping');
 Route::get('/export-styling', [\App\Http\Controllers\CustomerController::class, 'export_styling'])->name('customers.export_styling');
+Route::get('/export-autosize', [\App\Http\Controllers\CustomerController::class, 'export_autosize'])->name('customers.export_autosize');

@@ -34,6 +34,8 @@
                         <a href="{{ route('customers.export_mapping') }}" class="btn btn-primary btn-sm mt-2"> Exports Purchase by (Relation-mapping) </a>
                         {{-- export styling --}}
                         <a href="{{ route('customers.export_styling') }}" class="btn btn-primary btn-sm mt-2"> Exports with Styling </a>
+                        {{-- export cell size --}}
+                        <a href="{{ route('customers.export_autosize') }}" class="btn btn-primary btn-sm mt-2"> Exports with Styling </a>
 
 
 
