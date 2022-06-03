@@ -30,6 +30,11 @@
                         <a href="{{ route('customers.export_multiple_sheets') }}" class="btn btn-primary btn-sm"> Exports into Multiple Sheets </a>
                         <!-- multipple sheet by org. -->
                         <a href="{{ route('customers.export_by_heading') }}" class="btn btn-primary btn-sm"> Exports with heading </a>
+                        {{-- export mapping --}}
+                        <a href="{{ route('customers.export_mapping') }}" class="btn btn-primary btn-sm mt-2"> Exports Purchase by (Relation-mapping) </a>
+                        {{-- export styling --}}
+                        <a href="{{ route('customers.export_styling') }}" class="btn btn-primary btn-sm mt-2"> Exports with Styling </a>
+
 
 
                     </div>

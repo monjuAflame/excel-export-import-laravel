@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Exports\CustomerExport;
 use App\Exports\CustomerExportHeading;
+use App\Exports\CustomerExportStyling;
 use App\Exports\CustomerExportView;
 use App\Exports\CustomerMultipleExportSheets;
+use App\Exports\CustomersExportMapping;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\Purchase;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
@@ -61,6 +64,17 @@ class CustomerController extends Controller
     public function export_with_heading()
     {
         return Excel::download( new CustomerExportHeading(), 'customer.xlsx');
+    }
+
+    public function export_mapping()
+    {
+        // dd(Purchase::with('customer')->get());
+        return Excel::download(new CustomersExportMapping(), 'customers.xlsx');
+    }
+
+    public function export_styling()
+    {
+        return Excel::download(new CustomerExportStyling(), 'customer.xlsx');
     }
 
 }
