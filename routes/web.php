@@ -32,3 +32,4 @@ Route::get('/export-autosize', [\App\Http\Controllers\CustomerController::class,
 Route::post('/import', [\App\Http\Controllers\CustomerController::class, 'import'])->name('customers.import');
 Route::post('/import-heading', [\App\Http\Controllers\CustomerController::class, 'import_heading'])->name('customers.import_heading');
 Route::post('/import-largeFile', [\App\Http\Controllers\CustomerController::class, 'import_largeFile'])->name('customers.import_largeFile');
+Route::post('/import-relationships', [\App\Http\Controllers\CustomerController::class, 'import_relationships'])->name('customers.import_relationships');

@@ -79,6 +79,14 @@
 
                             <input type="submit" class="btn btn-sm btn-primary" value="Import File">
                         </form>
+                        {{-- import relationship data --}}
+                        <p>import relationship data</p>
+                        <form action="{{ route('customers.import_relationships') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="import" id="">
+
+                            <input type="submit" class="btn btn-sm btn-primary" value="Import File">
+                        </form>
 
                     </div>
                     <div class="card-body">
