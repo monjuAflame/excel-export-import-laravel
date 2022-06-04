@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CustomerEImportHeading;
 use App\Exports\CustomerExport;
 use App\Exports\CustomerExportHeading;
 use App\Exports\CustomerExportSize;
@@ -12,6 +13,7 @@ use App\Exports\CustomersExportMapping;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Imports\CustomerImportHeading;
 use App\Imports\CustomersImport;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
@@ -88,6 +90,12 @@ class CustomerController extends Controller
     public function import(Request $request)
     {
         Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
+        return redirect()->route('customers.index')->withMessage('Successfully Import');
+    }
+
+    public function import_heading()
+    {
+        Excel::import(new CustomerImportHeading(), request()->file('import', null, 'Csv'));
         return redirect()->route('customers.index')->withMessage('Successfully Import');
     }
 }

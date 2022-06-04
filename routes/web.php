@@ -30,3 +30,4 @@ Route::get('/export-autosize', [\App\Http\Controllers\CustomerController::class,
 
 // import
 Route::post('/import', [\App\Http\Controllers\CustomerController::class, 'import'])->name('customers.import');
+Route::post('/import-heading', [\App\Http\Controllers\CustomerController::class, 'import_heading'])->name('customers.import_heading');
