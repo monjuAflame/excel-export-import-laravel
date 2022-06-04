@@ -59,6 +59,7 @@
                             <input type="submit" class="btn btn-sm btn-primary" value="Import File">
                         </form>
                         {{-- with heading --}}
+                        <p>heading with</p>
                         <form action="{{ route('customers.import_heading') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="file" name="import" id="">
@@ -67,6 +68,14 @@
                                 <option value=",">Delimiter , (comma)</option>
                                 <option value=";">Delimiter ; (semicolon)</option>
                             </select>
+
+                            <input type="submit" class="btn btn-sm btn-primary" value="Import File">
+                        </form>
+                        {{-- large file upload --}}
+                        <p>Large file upload 10,000</p>
+                        <form action="{{ route('customers.import_largeFile') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="import" id="">
 
                             <input type="submit" class="btn btn-sm btn-primary" value="Import File">
                         </form>

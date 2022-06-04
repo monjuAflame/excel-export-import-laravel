@@ -14,6 +14,7 @@ use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Imports\CustomerImportHeading;
+use App\Imports\CustomerImportLarge;
 use App\Imports\CustomersImport;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
@@ -97,5 +98,18 @@ class CustomerController extends Controller
     {
         Excel::import(new CustomerImportHeading(), request()->file('import', null, 'Csv'));
         return redirect()->route('customers.index')->withMessage('Successfully Import');
+    }
+
+    public function import_largeFile(){
+        $start_time = $this->microtime_float();
+        Excel::import(new CustomerImportLarge(), request()->file('import'));
+        $end_time = $this->microtime_float();
+        $time = $end_time - $start_time;
+        return "Time: $time secconds";
+    }
+
+    public function microtime_float(){
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
     }
 }
