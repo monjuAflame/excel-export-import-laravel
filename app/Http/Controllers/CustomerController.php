@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\CustomerEImportHeading;
 use App\Exports\CustomerExport;
+use App\Exports\CustomerExportDateTimeFormat;
 use App\Exports\CustomerExportHeading;
 use App\Exports\CustomerExportSize;
 use App\Exports\CustomerExportStyling;
@@ -13,6 +14,7 @@ use App\Exports\CustomersExportMapping;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Imports\CustomerImportDateformat;
 use App\Imports\CustomerImportHeading;
 use App\Imports\CustomerImportLarge;
 use App\Imports\CustomerImportRelationship;
@@ -89,6 +91,10 @@ class CustomerController extends Controller
         return Excel::download(new CustomerExportSize(), 'customer.xlsx');
     }
 
+    public function export_dateTime_format(){
+        return Excel::download(new CustomerExportDateTimeFormat(), 'customer.xlsx');
+    }
+
     public function import(Request $request)
     {
         Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
@@ -118,6 +124,7 @@ class CustomerController extends Controller
         $time = $end_time - $start_time;
         return "Time: $time secconds";
     }
+    
 
     public function microtime_float()
     {
@@ -125,7 +132,12 @@ class CustomerController extends Controller
         return ((float)$usec + (float)$sec);
     }
 
-   
+   public function import_datetime_format()
+   {
+       Excel::import(new CustomerImportDateformat(), request()->file('import'));
+       return redirect()->route('customers.index')->withMessage('Successfully Import');
+
+   }
 
 
 

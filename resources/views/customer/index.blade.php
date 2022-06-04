@@ -37,6 +37,9 @@
                         {{-- export cell size --}}
                         <a href="{{ route('customers.export_autosize') }}" class="btn btn-primary btn-sm mt-2"> Exports with Styling </a>
 
+                        {{-- export cell size --}}
+                        <a href="{{ route('customers.export_dateTime_format') }}" class="btn btn-primary btn-sm mt-2"> Exports Date Time Format </a>
+
                         <br>
                         <br>
                         <br>
@@ -82,6 +85,14 @@
                         {{-- import relationship data --}}
                         <p>import relationship data</p>
                         <form action="{{ route('customers.import_relationships') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="import" id="">
+
+                            <input type="submit" class="btn btn-sm btn-primary" value="Import File">
+                        </form>
+                        {{-- import datetime data --}}
+                        <p>import Date Time Format</p>
+                        <form action="{{ route('customers.import_datetime_format') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="file" name="import" id="">
 

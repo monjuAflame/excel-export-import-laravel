@@ -25,6 +25,7 @@ Route::get('/export-by-heading', [\App\Http\Controllers\CustomerController::clas
 Route::get('/export-relation-map', [\App\Http\Controllers\CustomerController::class, 'export_mapping'])->name('customers.export_mapping');
 Route::get('/export-styling', [\App\Http\Controllers\CustomerController::class, 'export_styling'])->name('customers.export_styling');
 Route::get('/export-autosize', [\App\Http\Controllers\CustomerController::class, 'export_autosize'])->name('customers.export_autosize');
+Route::get('/export-dateTime-format', [\App\Http\Controllers\CustomerController::class, 'export_dateTime_format'])->name('customers.export_dateTime_format');
 
 
 
@@ -33,3 +34,4 @@ Route::post('/import', [\App\Http\Controllers\CustomerController::class, 'import
 Route::post('/import-heading', [\App\Http\Controllers\CustomerController::class, 'import_heading'])->name('customers.import_heading');
 Route::post('/import-largeFile', [\App\Http\Controllers\CustomerController::class, 'import_largeFile'])->name('customers.import_largeFile');
 Route::post('/import-relationships', [\App\Http\Controllers\CustomerController::class, 'import_relationships'])->name('customers.import_relationships');
+Route::post('/import-datetime_format', [\App\Http\Controllers\CustomerController::class, 'import_datetime_format'])->name('customers.import_datetime_format');
