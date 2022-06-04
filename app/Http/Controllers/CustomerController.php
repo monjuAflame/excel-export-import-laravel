@@ -14,6 +14,7 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Imports\CustomersImport;
 use App\Models\Purchase;
+use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
@@ -84,9 +85,9 @@ class CustomerController extends Controller
         return Excel::download(new CustomerExportSize(), 'customer.xlsx');
     }
 
-    public function import()
+    public function import(Request $request)
     {
-        Excel::import(new CustomersImport(), request()->file('import', null, 'Csv'));
+        Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
         return redirect()->route('customers.index')->withMessage('Successfully Import');
     }
 }
