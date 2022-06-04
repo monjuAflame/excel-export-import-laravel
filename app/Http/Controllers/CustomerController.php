@@ -139,6 +139,20 @@ class CustomerController extends Controller
 
    }
 
+   public function import_error()
+   {
+    try{
+        Excel::import(new CustomerImportDateformat(), request()->file('import'));
+    } catch(\Carbon\Exceptions\InvalidFormatException $ex) {
+        return back()->withError('wrong date format column');
+    } catch(\Exception $ex){
+        return back()->withError('somthing wrong check your file');
+    } catch(\Error $er){
+        return back()->withError('somthing wrong check your file');
+    }
+    return redirect()->route('customers.index')->withMessage('Successfully Import');
+   }
+
 
 
 }

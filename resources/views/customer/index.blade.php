@@ -49,6 +49,11 @@
                                 {{ session('message') }}
                             </div>
                         @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         
                         <form action="{{ route('customers.import') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -93,6 +98,14 @@
                         {{-- import datetime data --}}
                         <p>import Date Time Format</p>
                         <form action="{{ route('customers.import_datetime_format') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="import" id="">
+
+                            <input type="submit" class="btn btn-sm btn-primary" value="Import File">
+                        </form>
+                        {{-- error handling eception --}}
+                        <p>error handling exception</p>
+                        <form action="{{ route('customers.import_error') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="file" name="import" id="">
 
