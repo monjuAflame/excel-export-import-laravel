@@ -86,7 +86,7 @@ class CustomerController extends Controller
 
     public function import()
     {
-        Excel::import(new CustomersImport(), request()->file('import'));
+        Excel::import(new CustomersImport(), request()->file('import', null, 'Csv'));
         return redirect()->route('customers.index')->withMessage('Successfully Import');
     }
 }
