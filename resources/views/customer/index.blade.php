@@ -41,6 +41,8 @@
                         <a href="{{ route('customers.export_dateTime_format') }}" class="btn btn-primary btn-sm mt-2"> Exports Date Time Format </a>
                         {{-- export cell merge --}}
                         <a href="{{ route('customers.export_cell_merge') }}" class="btn btn-primary btn-sm mt-2"> Exports Cell Merge </a>
+                        {{-- export formulas --}}
+                        <a href="{{ route('customers.export_formulas') }}" class="btn btn-primary btn-sm mt-2"> Exports Transaction Formulas </a>
 
                         <br>
                         <br>

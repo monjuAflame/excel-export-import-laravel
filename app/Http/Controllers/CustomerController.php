@@ -102,6 +102,11 @@ class CustomerController extends Controller
         return Excel::download(new CustomerExportMergeCell(), 'customer.xlsx');
     }
 
+    public function export_formulas(){
+
+        return Excel::download(new CustomerExportTransaction(), 'customer.xlsx');
+    }
+
     public function import(Request $request)
     {
         Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
