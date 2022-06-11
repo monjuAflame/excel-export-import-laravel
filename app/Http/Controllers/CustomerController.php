@@ -109,7 +109,18 @@ class CustomerController extends Controller
 
     public function import(Request $request)
     {
-        Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
+        // Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
+
+        // file import existing data with update
+        $customers = Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'import_file'));
+        foreach($customers[0] as $customer)
+        {
+            Customer::where('id', $customer[0])->update([
+                'first_name' => $customer[1],
+                'last_name' => $customer[2],
+                'email' => $customer[3],
+            ]);
+        }
 
         return redirect()->route('customers.index')->withMessage('Successfully Import');
     }
