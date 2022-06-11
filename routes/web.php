@@ -26,6 +26,7 @@ Route::get('/export-relation-map', [\App\Http\Controllers\CustomerController::cl
 Route::get('/export-styling', [\App\Http\Controllers\CustomerController::class, 'export_styling'])->name('customers.export_styling');
 Route::get('/export-autosize', [\App\Http\Controllers\CustomerController::class, 'export_autosize'])->name('customers.export_autosize');
 Route::get('/export-dateTime-format', [\App\Http\Controllers\CustomerController::class, 'export_dateTime_format'])->name('customers.export_dateTime_format');
+Route::get('/export-cell_merge', [\App\Http\Controllers\CustomerController::class, 'export_cell_merge'])->name('customers.export_cell_merge');
 
 
 

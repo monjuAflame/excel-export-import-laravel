@@ -37,8 +37,10 @@
                         {{-- export cell size --}}
                         <a href="{{ route('customers.export_autosize') }}" class="btn btn-primary btn-sm mt-2"> Exports with Styling </a>
 
-                        {{-- export cell size --}}
+                        {{-- export date time --}}
                         <a href="{{ route('customers.export_dateTime_format') }}" class="btn btn-primary btn-sm mt-2"> Exports Date Time Format </a>
+                        {{-- export cell merge --}}
+                        <a href="{{ route('customers.export_cell_merge') }}" class="btn btn-primary btn-sm mt-2"> Exports Cell Merge </a>
 
                         <br>
                         <br>

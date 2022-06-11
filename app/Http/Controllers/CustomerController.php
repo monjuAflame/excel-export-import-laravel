@@ -6,8 +6,10 @@ use App\Exports\CustomerEImportHeading;
 use App\Exports\CustomerExport;
 use App\Exports\CustomerExportDateTimeFormat;
 use App\Exports\CustomerExportHeading;
+use App\Exports\CustomerExportMergeCell;
 use App\Exports\CustomerExportSize;
 use App\Exports\CustomerExportStyling;
+use App\Exports\CustomerExportTransaction;
 use App\Exports\CustomerExportView;
 use App\Exports\CustomerMultipleExportSheets;
 use App\Exports\CustomersExportMapping;
@@ -95,9 +97,15 @@ class CustomerController extends Controller
         return Excel::download(new CustomerExportDateTimeFormat(), 'customer.xlsx');
     }
 
+    public function export_cell_merge(){
+
+        return Excel::download(new CustomerExportMergeCell(), 'customer.xlsx');
+    }
+
     public function import(Request $request)
     {
         Excel::import(new CustomersImport($request->delimiter), request()->file('import', null, 'Csv'));
+
         return redirect()->route('customers.index')->withMessage('Successfully Import');
     }
 
